@@ -1,0 +1,25 @@
+{
+  "name": "covidvizualizer",
+  "version": "1.0.3",
+  "description": "A NPM package that plots and displays the Covid information.",
+  "main": "covidVizualizer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattasridhar/CovidVizualizer.git"
+  },
+  "keywords": [
+    "Covid",
+    "javascript",
+    "typescript",
+    "leaflet"
+  ],
+  "author": "Sridhar Matta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattasridhar/CovidVizualizer/issues"
+  },
+  "homepage": "https://github.com/mattasridhar/CovidVizualizer#readme"
+}
