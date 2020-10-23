@@ -1,31 +1,26 @@
-import { Marker } from "./Marker.js";
-
 const mapboxToken =
   "pk.eyJ1IjoibWF0dGFzcmlkaGFyIiwiYSI6ImNrZ2xlMDN1ODBrMDAyenBudmplaXJ1Z2cifQ.R0uCCAssUlmmlnGcoocMfQ";
 
 // Create the world map
 export const MapCreator = (
   mapArea,
-  latitude = 0,
-  longitude = 0,
   theme = "light",
   zoomType,
   covidDisplayInfo,
   divHeight,
   divWidth
 ) => {
-  // console.log("SRI in mapCreator: ", mapArea.innerHTML);
+  const latitude = parseFloat(covidDisplayInfo.latitude) || 0;
+  const longitude = parseFloat(covidDisplayInfo.longitude) || 0;
+  const covidInfoArea = document.getElementById("covidInfo");
 
   let zoomLevel = 0;
   let themeStyle = "light-v10";
   if (zoomType === "country") {
-    zoomLevel = 1; // 11.5;
+    zoomLevel = 2.5;
   } else if (zoomType === "province") {
-    zoomLevel = 4; //
+    zoomLevel = 5;
   }
-
-  //SRI to remove this later
-  latitude === 0 ? (zoomLevel = 1) : (zoomLevel = 4);
 
   if (theme === "dark") {
     themeStyle = "dark-v10";
@@ -37,8 +32,17 @@ export const MapCreator = (
     zoomLevel,
     themeStyle,
     divHeight,
-    divWidth
+    divWidth,
+    zoomType
   );
+
+  if (covidInfoArea) {
+    covidInfoArea.innerHTML = `<u><b> COVID-19</b> Status: </u><br><br> <i>&nbsp;&nbsp;Confirmed:</i> ${covidDisplayInfo.covidStatusInfo.confirmed} <br> <i>&nbsp;&nbsp;Recovered:</i> ${covidDisplayInfo.covidStatusInfo.recovered} <br> <i>&nbsp;&nbsp;Deaths:</i> ${covidDisplayInfo.covidStatusInfo.deaths}`;
+  } else {
+    console.error(
+      `${ERROR_PREFIX} <div> with ID = 'covidInfo' missing! \nPlease create a div within id='covidVizualizerDiv' in your HTML. `
+    );
+  }
 };
 
 // Get the world map using mapbox API
@@ -49,32 +53,13 @@ const getMap = async (
   zoomLevel,
   themeStyle,
   divHeight,
-  divWidth
+  divWidth,
+  zoomType
 ) => {
-  /* console.log(
-    "SRI in mapCreator: ",
-    mapArea.innerHTML,
-    // " latitude",
-    // latitude,
-    // " longitude",
-    // longitude,
-    " zoomLevel",
-    zoomLevel,
-    " themeStyle",
-    themeStyle,
-    " divHeight",
-    divHeight,
-    " divWidth",
-    divWidth
-  ); */
-  const { x, y } = getWebMercatorCords(latitude, longitude, zoomLevel);
-  console.log("SRI x: ", x, " y: ", y);
-  const apiMapImgURL = `https://api.mapbox.com/styles/v1/mapbox/${themeStyle}/static/${latitude},${longitude},${zoomLevel}/${divWidth}x${divHeight}?access_token=${mapboxToken}`;
+  /* // Can use these to properly place the Markers on Map
+  const { x, y } = getWebMercatorCords(latitude, longitude, zoomLevel); */
+  const apiMapImgURL = `https://api.mapbox.com/styles/v1/mapbox/${themeStyle}/static/${longitude},${latitude},${zoomLevel}/${divWidth}x${divHeight}?access_token=${mapboxToken}`;
 
-  // mapArea.appendChild(`<img src=${apiMapImgURL}></img>`);
-  // mapArea.appendChild(
-  //   `<div id="redGif" style='width:50px; height:50px background:red;'></div>`
-  // );
   const mapImg = document.createElement("img");
   mapImg.src = apiMapImgURL;
   mapImg.style.position = "relative";
@@ -84,7 +69,6 @@ const getMap = async (
 
 // Convert latitude and longitude values to 2d points
 const getWebMercatorCords = (latitude, longitude, zoomLevel) => {
-  console.log("SRI getMerc: ", " latitude", latitude, " longitude", longitude);
   let x = 0,
     y = 0;
 
