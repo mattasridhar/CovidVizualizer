@@ -1,6 +1,6 @@
 {
   "name": "covidvizualizer",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A NPM package that plots and displays the Covid information.",
   "main": "covidVizualizer.js",
   "scripts": {
