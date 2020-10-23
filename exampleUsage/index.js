@@ -64,23 +64,4 @@ const getCountriesList = async () => {
   });
 };
 
-// Plot the map
-const plotMap = (theme, zoomType, covidDisplayInfo) => {
-  console.log(
-    "SRI example plotMap: ",
-    " theme",
-    theme,
-    " zoomType",
-    zoomType,
-    " covidInfo",
-    covidDisplayInfo
-  );
-  covidvizualizer.renderCovidMap({
-    zoomType,
-    showLogs: true,
-    theme,
-    covidDisplayInfo,
-  });
-};
-
 document.addEventListener("DOMContentLoaded", mapHandler);
