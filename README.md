@@ -28,39 +28,46 @@ USAGE
 
 <pre>Use the following snippet in the UI HTML file where you wish the map to be rendered.</pre>
 <ul>
-<li>The following component/HTML tags are required with the exact same IDs for the package to function as desired.</li>
+<li>The following component/HTML tags are required with the exact same IDs for the package to function as desired.
+<pre>
+```html
+<`div` id='covidVizualizerDiv' style="width: 1024px; height: 512px;">
+     <`select` id='countriesList'><`/select`>
+     <`select` id='provincesList'><`/select`>
+     <`h3` id='covidInfo'><`/h3`>
+     <`div` id='covidMapArea'><`/div`>
+<`/div`>```
+</pre>
+</li>
 </ul>
-```<div id='covidVizualizerDiv' style="width: 1024px; height: 512px;">
-            <select id='countriesList'></select>
-            <select id='provincesList'></select>
-            <h3 id='covidInfo'></h3>
-            <div id='covidMapArea'></div>
-    </div>```
 <pre>The following methods can be used to obtain the respective outcome.</pre>
 <ul>
-<li>getCountriesInfo -> to get the list of countries' names and codes for which the COVID-19 information is available. </li>
-```
+<li>getCountriesInfo -> to get the list of countries' names and codes for which the COVID-19 information is available.
+<pre>
 covidvizualizer.getCountriesInfo({ showLogs: true })
-```
-<li>getCovidInfo -> to get the COVID-19 information for the selected country. </li>
-```
+</pre>
+</li>
+<li>getCovidInfo -> to get the COVID-19 information for the selected country. 
+<pre>
 covidvizualizer.getCovidInfo({ selectedCountry: 'canada', showLogs: true })
-```
-<li>renderCovidMap -> to plot and render the COVID-19 information for the selected country on the Map. </li>
-```
+</pre>
+</li>
+<li>renderCovidMap -> to plot and render the COVID-19 information for the selected country on the Map.
+<pre>
 covidvizualizer.renderCovidMap({
     zoomType: 'country',
     showLogs: true,
     theme: 'dark',
     covidDisplayInfo: {},
 });
-```
+</pre> 
+</li>
 </ul>
 
 <pre>The structure of 'covidDisplayInfo' being returned by the 'getCovidInfo' method is as follows:</pre>
 <ul>
 <li>
-```
+<pre>
 covidDisplayInfo = {
         countryInfo: {
             countryName: 'Countryname',
@@ -85,7 +92,7 @@ covidDisplayInfo = {
             }
         ]
     }
-```
+</pre>
 </li>
 </ul>
 
@@ -146,18 +153,20 @@ INSTALLATION NOTES\
  Use the following command to install the CovidVizualizer NPM package in your project.
 
 <ol type="A">
-<li> Global installation </li>
-```
+<li> Global installation
+<pre>
 npm install --global covidvizualizer
 [or]
 npm i -g covidvizualizer
-```
-<li> Dev dependency installation </li>
-```
+</pre> 
+</li>
+<li> Dev dependency installation
+<pre>
 npm install --save-dev covidvizualizer
 [or]
 npm i --save-dev covidvizualizer
-```
+</pre> 
+ </li>
 </ol>
 
 ABOUT THE APPLICATION\
