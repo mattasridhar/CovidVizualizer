@@ -1,6 +1,6 @@
-import covidvizualizer from "./node_modules/covidvizualizer/covidvizualizer.js";
+import covidvizualizer from "covidvizualizer";
 
-const theme = "dark";
+const theme = "light";
 const showLogs = true;
 let covidInformation = {};
 
