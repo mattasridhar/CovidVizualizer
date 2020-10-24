@@ -13,8 +13,8 @@
   "keywords": [
     "Covid",
     "javascript",
-    "typescript",
-    "leaflet"
+    "leaflet",
+    "mapbox"
   ],
   "author": "Sridhar Matta",
   "license": "ISC",
