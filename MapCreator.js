@@ -37,7 +37,7 @@ export const MapCreator = (
   );
 
   if (covidInfoArea) {
-    covidInfoArea.innerHTML = `<u><b> COVID-19</b> Status: </u><br><br> <i>&nbsp;&nbsp;Confirmed:</i> ${covidDisplayInfo.covidStatusInfo.confirmed} <br> <i>&nbsp;&nbsp;Recovered:</i> ${covidDisplayInfo.covidStatusInfo.recovered} <br> <i>&nbsp;&nbsp;Deaths:</i> ${covidDisplayInfo.covidStatusInfo.deaths}`;
+    covidInfoArea.innerHTML = `<b> <i style="color: brown;">&nbsp;&nbsp;Confirmed: ${covidDisplayInfo.covidStatusInfo.confirmed} </i></b> <i style="color: green;">&nbsp;&nbsp;Recovered: ${covidDisplayInfo.covidStatusInfo.recovered} </i><i style="color: red;">&nbsp;&nbsp;Deaths: ${covidDisplayInfo.covidStatusInfo.deaths} </i><br><br> <a href="https://github.com/mattasridhar/covidvizualizer" style='padding: 15px;'><i>@Sridhar's Stuff</i></a>`;
   } else {
     console.error(
       `${ERROR_PREFIX} <div> with ID = 'covidInfo' missing! \nPlease create a div within id='covidVizualizerDiv' in your HTML. `
