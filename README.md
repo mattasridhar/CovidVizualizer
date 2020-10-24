@@ -32,12 +32,12 @@ USAGE
 <pre>
 ![](readme_figs/fig6.png)
 ```html
-<div id='covidVizualizerDiv' style="width: 1024px; height: 512px;">
-    <select id='countriesList'></select>
-    <select id='provincesList'></select>
-    <h3 id='covidInfo'></h3>
-    <div id='covidMapArea'></div>
-</div>
+<`div` id='covidVizualizerDiv' style="width: 1024px; height: 512px;">
+    <`select` id='countriesList'></`select`>
+    <`select` id='provincesList'/>
+    <`h3` id='covidInfo' />
+    <`div` id='covidMapArea'/>
+<`/div`>
 ```
 </pre>
 </li>
