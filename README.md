@@ -20,9 +20,9 @@ A NPM that plots and displays the Covid-19 information in the Browser. This pack
 <br><br>
 <b>Check out this video to see the demo.</b>
 
-[![](http://img.youtube.com/watch/vi/t9d-gSbb9cw&ab_channel=HighbrowFrolics/0.jpg)](https://www.youtube.com/watch?v=t9d-gSbb9cw&ab_channel=HighbrowFrolics)
+[![Covid-Ex-Tension Demo](readme_figs/demoThumbnail.png)](https://youtu.be/lVVa_yyNgMY)
 
-<pre><i>If the above video doesn't seem to work, you can find the same clip of Demo at (~/readme_figs/DemoVideos/CovidExtensionDemo.mp4) location.</i></pre>
+<pre><i>If the above video doesn't seem to work, you can find the same clip of Demo at (~/readme_figs/DemoVideos/CovidExTension-CovidVizualizer_Demo.mp4) location.</i></pre>
 
 USAGE
 
